@@ -1,5 +1,6 @@
 package com.gabriel.example.userAPI.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,10 @@ public class UserService {
 	public User findUserById(Integer id) {
 		Optional<User> user = repository.findById(id);
 		return user.orElseThrow(() -> new UserNotFoundException("User with id " + id + " was not found!"));
+	}
+
+	public List<User> listAllUsers() {
+		return repository.findAll();
 	}
 
 }

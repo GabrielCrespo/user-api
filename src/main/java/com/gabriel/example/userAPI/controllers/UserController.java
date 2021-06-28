@@ -1,5 +1,7 @@
 package com.gabriel.example.userAPI.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +23,12 @@ public class UserController {
 	public ResponseEntity<User> findUserById(@PathVariable Integer id){
 		User user = service.findUserById(id);
 		return ResponseEntity.ok().body(user);
+	}
+	
+	@GetMapping
+	public ResponseEntity<List<User>> listAllUsers(){
+		List<User> users = service.listAllUsers();
+		return ResponseEntity.ok().body(users);
 	}
 	
 }
