@@ -35,4 +35,14 @@ public class UserService {
 		return repository.save(updatedUser);
 	}
 
+	public User createNewUser(User user) {
+		user.setId(null);
+		return repository.save(user);
+	}
+
+	public void deleteUserById(Integer id) {
+		findUserById(id);
+		repository.deleteById(id);
+	}
+
 }
